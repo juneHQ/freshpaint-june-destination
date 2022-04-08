@@ -9,20 +9,22 @@
 // * lodash@4.17.15 as _
 // * node-fetch@2.6.0 as fetch
 
+const trackEndpoint = "https://api.june.so/api/track";
+const pageEndpoint = "https://api.june.so/api/page";
+const identifyEndpoint = "https://api.june.so/api/identify";
+const groupEndpoint = "https://api.june.so/api/group";
+
 /**
  * Handle track event
  */
 async function onTrack(event, settings) {
-  // Learn more at https://documentation.freshpaint.io/developer-docs/freshpaint-sdk-reference#track
-  const endpoint = ''; // replace with your endpoint
-
-  await fetch(endpoint, {
-    method: 'POST',
+  await fetch(trackEndpoint, {
+    method: "POST",
     headers: {
-      Authorization: `Basic ${btoa(settings.apiKey + ':')}`,
-      'Content-Type': 'application/json'
+      Authorization: `Basic ${settings.apiKey}`,
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(event)
+    body: JSON.stringify(event),
   });
 }
 
@@ -30,22 +32,40 @@ async function onTrack(event, settings) {
  * Handle identify event
  */
 async function onIdentify(event, settings) {
-  // Learn more at https://documentation.freshpaint.io/developer-docs/freshpaint-sdk-reference#identify
-  throw new EventNotSupported('identify is not supported');
+  await fetch(identifyEndpoint, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${settings.apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(event),
+  });
 }
 
 /**
  * Handle group event
  */
 async function onGroup(event, settings) {
-  // Learn more at https://documentation.freshpaint.io/developer-docs/freshpaint-sdk-reference#group
-  throw new EventNotSupported('group is not supported');
+  await fetch(groupEndpoint, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${settings.apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(event),
+  });
 }
 
 /**
  * Handle page event
  */
 async function onPage(event, settings) {
-  // Learn more at https://documentation.freshpaint.io/developer-docs/freshpaint-sdk-reference#page
-  throw new EventNotSupported('page is not supported');
+  await fetch(pageEndpoint, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${settings.apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(event),
+  });
 }
