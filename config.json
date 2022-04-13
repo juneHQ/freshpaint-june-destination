@@ -1,12 +1,14 @@
 {
   "supportsTrack": true,
   "supportsCohorts": false,
-  "supportsBackfill": false,
-  "configFields": [{
-    "key": "apiKey",
-    "name": "API Key ",
-    "sensitive": true,
-    "required": true,
-    "type": "string"
-  }]
+  "supportsBackfill": true,
+  "configFields": [
+    {
+      "key": "apiKey",
+      "name": "API Key ",
+      "sensitive": true,
+      "required": true,
+      "type": "string"
+    }
+  ]
 }
